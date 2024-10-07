@@ -1,0 +1,88 @@
+<mat-toolbar color="primary">
+  <span>{{ email ? "Current user: " + email : "" }}</span>
+  <div class="buttons">
+    <span>
+      <button
+        *ngIf="hasPermission(['edit_permissions'])"
+        class="nav-button"
+        color="accent"
+        routerLink="/edit-permissions"
+        mat-flat-button
+      >
+        Edit Permissions
+      </button>
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="nav-button"
+        color="accent"
+        routerLink="/registration-requests"
+        mat-flat-button
+      >
+        Registration requests
+      </button>
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="nav-button"
+        color="accent"
+        routerLink="/admin-profile"
+        mat-flat-button
+      >
+        Profile
+      </button>
+      <button
+        *ngIf="role === 'ADMIN'"
+        class="nav-button"
+        color="accent"
+        routerLink="/profile"
+        mat-flat-button
+      >
+        Profile
+      </button>
+      <button
+        *ngIf="hasPermission(['register_admin', 'register_employee'])"
+        class="nav-button"
+        color="accent"
+        routerLink="/register-admin-or-employee"
+        mat-flat-button
+      >
+        Register Admin or Employee
+      </button>
+      <button
+        *ngIf="isClient()"
+        class="nav-button"
+        color="accent"
+        (click)="delete()"
+        mat-flat-button
+      >
+        DELETE DATA
+      </button>
+      <button
+        *ngIf="!email"
+        class="nav-button"
+        color="accent"
+        routerLink="/register-client"
+        mat-flat-button
+      >
+        Register Client
+      </button>
+      <button
+        *ngIf="!email"
+        class="nav-button"
+        color="accent"
+        routerLink="/login"
+        mat-flat-button
+      >
+        Login
+      </button>
+      <button
+        *ngIf="email"
+        class="nav-button"
+        color="accent"
+        (click)="logout()"
+        mat-flat-button
+      >
+        Signout
+      </button>
+    </span>
+  </div>
+</mat-toolbar>

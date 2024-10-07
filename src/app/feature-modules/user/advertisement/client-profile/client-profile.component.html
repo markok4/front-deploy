@@ -1,0 +1,97 @@
+<div class="space">
+  <div class="container">
+    <h2>Client Profile</h2>
+    <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+      <div class="form-fields">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Name" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Email" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Surname</mat-label>
+          <input matInput formControlName="surname" placeholder="Surname" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" placeholder="Address" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" placeholder="City" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="country" placeholder="Country" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            formControlName="phoneNumber"
+            placeholder="Phone Number"
+          />
+        </mat-form-field>
+      </div>
+      <div class="button-group">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!userForm.valid"
+        >
+          Update
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+  <form
+    [formGroup]="advertisementForm"
+    (ngSubmit)="createAdvertisement(advertisementForm.value)"
+  >
+    <div class="form-fields">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          formControlName="description"
+          placeholder="Description"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input matInput formControlName="startDate" placeholder="Start Date" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input matInput formControlName="endDate" placeholder="End Date" />
+      </mat-form-field>
+
+      <!-- <mat-select
+        placeholder="Choose Employee"
+        (selectionChange)="onEmployeeSelect($event)"
+      >
+        <mat-option *ngFor="let employee of employees" [value]="employee.id">
+          {{ employee.name }} {{ employee.surname }}
+        </mat-option>
+      </mat-select> -->
+
+      <button type="submit" mat-raised-button color="primary">
+        Create Advertisement
+      </button>
+    </div>
+  </form>
+</div>

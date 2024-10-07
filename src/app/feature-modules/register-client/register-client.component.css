@@ -1,0 +1,40 @@
+.container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 45%;
+}
+
+.mat-radio-button {
+  margin-right: 10px;
+}
+
+.qr-code-container {
+  display: flex;
+  margin: 3rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Registration requests</h2>
+
+  <div class="card-container">
+    <mat-card *ngFor="let request of requests" class="card">
+      <mat-card-content>
+        <p>Email: {{ request.email }}</p>
+        <p>Role: {{ request.role }}</p>
+        <p>Type: {{ request.type }}</p>
+        <p>Package: {{ request.package }}</p>
+        <mat-card-actions>
+          <button mat-button (click)="onApprove(request.id)">Approve</button>
+          <button mat-button (click)="onDecline(request.id)">Decline</button>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

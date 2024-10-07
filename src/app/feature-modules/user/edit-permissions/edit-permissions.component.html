@@ -1,0 +1,18 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Select role</mat-label>
+    <mat-select [(value)]="selectedValue">
+      <mat-option *ngFor="let option of options" [value]="option">{{
+        option
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter permission</mat-label>
+    <input matInput [(ngModel)]="textInput" />
+  </mat-form-field>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="add()">Add</button>
+    <button mat-raised-button color="warn" (click)="remove()">Remove</button>
+  </div>
+</div>

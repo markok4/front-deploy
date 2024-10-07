@@ -1,0 +1,71 @@
+<div *ngIf="!email" class="container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-fields">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </mat-form-field>
+      <re-captcha
+        siteKey="6LfuZ_gpAAAAAMw6Ph8kRLzX1hlx51hu56JAZz-T"
+        (resolved)="onCaptchaResolved($event)"
+      ></re-captcha>
+      <div
+        href="#"
+        (click)="openPasswordlessLoginPage()"
+        style="cursor: pointer; text-decoration: none; color: rgb(207, 84, 255)"
+      >
+        Passwordless login
+      </div>
+
+      <div
+        href="#"
+        (click)="openForgotPasswordPage()"
+        style="cursor: pointer; text-decoration: none; color: rgb(207, 84, 255)"
+      >
+        Forgot password?
+      </div>
+      <div class="button-group">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid || !captchaResolved"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="email" class="container">
+  <h2>Enter token from authenticator app</h2>
+  <form [formGroup]="otpLoginForm" (ngSubmit)="verifyOtpLogin()">
+    <div class="form-fields">
+      <mat-form-field appearance="fill">
+        <mat-label>Token</mat-label>
+        <input matInput formControlName="token" placeholder="Token" />
+      </mat-form-field>
+      <div class="button-group">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!otpLoginForm.valid"
+        >
+          Submit token
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
